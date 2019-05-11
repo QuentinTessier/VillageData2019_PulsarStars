@@ -1,35 +1,22 @@
-#!/usr/bin/python
-
-import numpy as np
-import pandas as pd
 from matplotlib import pyplot as plt
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.preprocessing import MinMaxScaler
-from sklearn.model_selection import train_test_split
+from sklearn.svm import SVC
+from sklearn.metrics import confusion_matrix
+import seaborn as sns
 
-DataFrame = pd.read_csv("../pulsar_stars.csv")  
-DataFrame.head()
-DataFrame.info()
-DataFrame.describe()
-DataFrame.corr()
-labels = DataFrame.target_class.values
+def SupportVectorMachine(X_Train, Y_Train, X_Test, Y_Test):
+    svm_model = SVC(random_state=42, C=250, gamma=1.6, kernel="poly", probability=True)
+    svm_model.fit(X_Train, Y_Train)
+    svm_head = svm_model.predict(X_Test)
+    svm_score = svm_model.score(X_Test, Y_Test)
 
-DataFrame.drop(["target_class"],axis=1,inplace=True)
+    # Display confusion matrix
 
-features = DataFrame.values
-
-scaler = MinMaxScaler(feature_range=(0,1))
-
-features_scaled = scaler.fit_transform(features)
-x_train, x_test, y_train, y_test = train_test_split(features_scaled,labels,test_size=0.2)
-
-knn_model = KNeighborsClassifier(n_neighbors=7,weights="distance")
-
-knn_model.fit(x_train,y_train)
-
-y_head_knn = knn_model.predict(x_test)
-
-knn_score = knn_model.score(x_test,y_test)
-print(knn_score)
+    cm_svm = confusion_matrix(Y_Test, svm_head)
+    plt.suptitle("Support Vector Machine's Confusion Matrix", fontsize=24)
+    ax = sns.heatmap(cm_svm, cbar=False, annot=True, cmap="CMRmap_r", fmt="d")
+    ax.set_xlabel('Predicted labels')
+    ax.set_ylabel('True labels')
+    ax.xaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
+    ax.yaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
+    plt.show()
+    return svm_score, svm_head
