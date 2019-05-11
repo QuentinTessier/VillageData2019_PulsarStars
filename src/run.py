@@ -11,9 +11,18 @@ from sklearn.preprocessing import MinMaxScaler # Scaler to normalize the data
 from sklearn.model_selection import train_test_split # Construct a trainer out of 4 data sets
 
 from DecitionTree import DecisionTree
+from ConfusionMatrix import ConfusionMatrix
+from KNN import KNN
 
 # Open csv file
 data = pd.read_csv('../pulsar_stars.csv')
+
+# Display Correlation of the Different object with one another
+plt.figure(figsize=(16,12))
+sns.heatmap(data=data.corr(),annot=True,cmap="bone",linewidths=1,fmt=".2f",linecolor="gray")
+plt.title("Correlation Map",fontsize=20)
+plt.tight_layout()
+plt.show()
 
 # Get values from the "target_class" column
 labels = data.target_class.values
@@ -29,5 +38,35 @@ features_scaled = scaler.fit_transform(features)
 # Return 20% of the data as test data, the rest is used to train our models
 x_train, x_test, y_train, y_test = train_test_split(features_scaled, labels, test_size=0.2)
 
-# Printing current result of the DecisionTree
-print(DecisionTree(x_train, y_train, x_test, y_test))
+# Training and Testing
+
+dc_score, dc_head = DecisionTree(x_train, y_train, x_test, y_test)
+knn_score, knn_head = KNN(x_train, y_train, x_test, y_test)
+
+# ~~~~~~~~~~~~~~~~~~~~
+
+# Add scores to the array
+scores = (dc_score, knn_score)
+
+# Add heads to the array
+heads = [dc_head, knn_head]
+
+# Name of the Algorithm
+algorithms = ("Decision Tree", "K Nearest Neighbor")
+
+# Range of elements
+h_pos = np.arange(1)
+
+# Color of the bar
+colors = ["red", "red"]
+
+# Display bar graph to compare every algorithms results
+
+# plt.figure(figsize=(24, 12))
+# plt.xticks(h_pos, algorithms, fontsize=18)
+# plt.yticks(np.arange(0.00, 1.01, step=0.01))
+# plt.ylim(0.90, 1.00)
+# plt.bar(h_pos, scores, color=colors)
+# plt.grid()
+# plt.suptitle("Models Comparison", fontsize=24)
+# plt.show()
