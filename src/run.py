@@ -11,7 +11,6 @@ from sklearn.preprocessing import MinMaxScaler # Scaler to normalize the data
 from sklearn.model_selection import train_test_split # Construct a trainer out of 4 data sets
 
 from DecitionTree import DecisionTree
-from ConfusionMatrix import ConfusionMatrix
 from KNN import KNN
 
 # Open csv file
