@@ -10,6 +10,8 @@ from sklearn.preprocessing import MinMaxScaler # Scaler to normalize the data
 
 from sklearn.model_selection import train_test_split # Construct a trainer out of 4 data sets
 
+from DecitionTree import DecisionTree
+
 # Open csv file
 data = pd.read_csv('../pulsar_stars.csv')
 
@@ -26,3 +28,6 @@ features_scaled = scaler.fit_transform(features)
 
 # Return 20% of the data as test data, the rest is used to train our models
 x_train, x_test, y_train, y_test = train_test_split(features_scaled, labels, test_size=0.2)
+
+# Printing current result of the DecisionTree
+print(DecisionTree(x_train, y_train, x_test, y_test))
