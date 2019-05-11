@@ -1,26 +1,28 @@
 #!/usr/bin/python
 
 import numpy as np
-import pandas as pd
-from matplotlib import pyplot as plt
-from sklearn.neural_network import MLPClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+import pandas as pd # Parse CSV file
 
+from matplotlib import pyplot as plt # Basic graph plotting library
+import seaborn as sns   # advanced graph plotting library
+
+from sklearn.preprocessing import MinMaxScaler # Scaler to normalize the data
+
+from sklearn.model_selection import train_test_split # Construct a trainer out of 4 data sets
+
+# Open csv file
 data = pd.read_csv('../pulsar_stars.csv')
 
-data.dropna()
-data.head()
+# Get values from the "target_class" column
+labels = data.target_class.values
 
-scaler = StandardScaler()
+# Drop the "target_class" column to only keep the data fed to the algorithms
+data.drop(["target_class"], axis=1, inplace=True)
+features = data.values
 
-X_data = data.iloc[:,0:-1].values
+# Scaling all data to the range {0, 1}
+scaler = MinMaxScaler(feature_range=(0, 1))
+features_scaled = scaler.fit_transform(features)
 
-Y_data = data.iloc[:,-1].values
-
-scaler.fit(X_data)
-X_scaled = scaler.transform(X_data)
-
-trainer = train_test_split(X_scaled, Y_data)
-
-print(X_scaled[0:5])
+# Return 20% of the data as test data, the rest is used to train our models
+x_train, x_test, y_train, y_test = train_test_split(features_scaled, labels, test_size=0.2)
