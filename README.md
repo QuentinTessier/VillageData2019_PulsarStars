@@ -2,27 +2,24 @@
 
 This repository was part of the "Village de la Data", a hackathon about Data Science.
 
-We mainly used python for this, with the help of libs like "sickit learn" for the machine learning part of the project, "matplotlib" and "seaborn" were used to display graphs
-
 What is a Pulsar star :
-    - A Pulsar is a highly magnetazed rotating neutron star that emits a beam of electromagnetic radiation. This radiation can be observed only when the beam of emission is pointing toward Earth. [More Here](https://en.wikipedia.org/wiki/Pulsar)
+
+    A Pulsar is a highly magnetazed rotating neutron star that emits a beam of electromagnetic radiation. This radiation can be observed only when the beam of emission is pointing toward Earth. [More Here](https://en.wikipedia.org/wiki/Pulsar)
 
 Data meaning :
 
-    1 => [Mean of the integrated profile] :
+    Integrated Profile :
 
-    2 => [Standard deviatoon of the integrated profile] :
+        Curve of the star's periodics electromagnetic pulsations
 
-    3 => [Excess kurtosis of the integrated profile] :
+    DM-SNR :
+        DM (Dispersion Measure) are the value of the integrated profile curve stretched or squeezed
 
-    4 => [Skewness of the integrated profile] :
+        SNR (Signal to Noise ratio) is a measure used to compare the level of a desired signal to the level of background noise
 
-    5 => [Mean of the DM-SNR curve] :
+        They make a curve out of both of these values
 
-    6 => [Standard deviation of the DM-SNR curve] :
+    Class :
+        Type of the pulsar star
 
-    7 => [Excess kurtosis of the DM-SNR curve] :
-
-    8 => [Skewness of the DM-SNR curve] :
-
-    9 => [Star Class] :
+More info [here](http://www.isgjesar.com/Papers/Volume3,issue1/Paper%202.PDF)
