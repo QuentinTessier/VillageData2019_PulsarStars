@@ -12,7 +12,6 @@ More infos [here](https://en.wikipedia.org/wiki/Pulsar)
 Data meaning :
 
     Integrated Profile :
-
         Curve of the star's periodics electromagnetic pulsations
 
     DM-SNR :
