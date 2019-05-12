@@ -12,7 +12,7 @@ def NaiveBayes(X_Train, Y_Train, X_Test, Y_Test):
     # Display confusion matrix
 
     cm_nb = confusion_matrix(Y_Test, y_head_nb)
-    plt.suptitle("K Naive Bayes Confusion Matrix", fontsize=24)
+    plt.suptitle("Naive Bayes Confusion Matrix", fontsize=24)
     ax = sns.heatmap(cm_nb, cbar=False, annot=True, cmap="CMRmap_r", fmt="d")
     ax.set_xlabel('Predicted labels')
     ax.set_ylabel('True labels')
