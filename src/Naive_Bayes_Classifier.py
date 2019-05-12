@@ -19,4 +19,4 @@ def NaiveBayes(X_Train, Y_Train, X_Test, Y_Test):
     ax.xaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
     ax.yaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
     plt.show()
-    return y_head_nb, nb_score
+    return nb_score, y_head_nb

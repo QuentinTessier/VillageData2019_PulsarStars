@@ -19,4 +19,4 @@ def KNN(X_Train, Y_Train, X_Test, Y_Test):
     ax.xaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
     ax.yaxis.set_ticklabels(['Non-Pulsar', 'Pulsar'])
     plt.show()
-    return knn_head, knn_score
+    return knn_score, knn_head

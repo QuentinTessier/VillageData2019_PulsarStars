@@ -12,6 +12,10 @@ from sklearn.model_selection import train_test_split # Construct a trainer out o
 
 from DecitionTree import DecisionTree
 from KNN import KNN
+from Support_Vector_Machine import SupportVectorMachine
+from RandomForestClassifier import RandomForest
+from Naive_Bayes_Classifier import NaiveBayes
+from LogisticRegression import LogisticRegression
 
 # Open csv file
 data = pd.read_csv('../pulsar_stars.csv')
@@ -41,23 +45,27 @@ x_train, x_test, y_train, y_test = train_test_split(features_scaled, labels, tes
 
 dc_score, dc_head = DecisionTree(x_train, y_train, x_test, y_test)
 knn_score, knn_head = KNN(x_train, y_train, x_test, y_test)
+#svm_score, svm_head = SupportVectorMachine(x_train, y_train, x_test, y_test)
+rfc_score, rfc_head = RandomForest(x_train, y_train, x_test, y_test)
+nb_score, nb_head = NaiveBayes(x_train, y_train, x_test, y_test)
+#lr_score, lr_head = LogisticRegression(x_train, y_train, x_test, y_test)
 
 # ~~~~~~~~~~~~~~~~~~~~
 
 # Add scores to the array
-scores = (dc_score, knn_score)
+scores = (dc_score, knn_score, rfc_score, nb_score)
 
 # Add heads to the array
-heads = [dc_head, knn_head]
+heads = [dc_head, knn_head, rfc_head, nb_head]
 
 # Name of the Algorithm
-algorithms = ("Decision Tree", "K Nearest Neighbor")
+algorithms = ("Decision Tree", "K Nearest Neighbor", "Random Forest", "Naive Bayes")
 
 # Range of elements
-h_pos = np.arange(1)
+h_pos = np.arange(1, 4)
 
 # Color of the bar
-colors = ["red", "red"]
+colors = ["red", "red", "red", "red"]
 
 # Display bar graph to compare every algorithms results
 
