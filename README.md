@@ -26,4 +26,4 @@ Data meaning :
 
 More infos [here](http://www.isgjesar.com/Papers/Volume3,issue1/Paper%202.PDF)
 
-![All algorithms differences](./Images/ModelCorrelation1.png)
+![All algorithms differences](./Images/ModelComparaison1.png)
