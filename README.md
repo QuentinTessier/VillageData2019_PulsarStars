@@ -4,7 +4,10 @@ This repository was part of the "Village de la Data", a hackathon about Data Sci
 
 What is a Pulsar star :
 
-    A Pulsar is a highly magnetazed rotating neutron star that emits a beam of electromagnetic radiation. This radiation can be observed only when the beam of emission is pointing toward Earth. [More Here](https://en.wikipedia.org/wiki/Pulsar)
+    A Pulsar is a highly magnetazed rotating neutron star that emits a beam of electromagnetic radiation.
+    This radiation can be observed only when the beam of emission is pointing toward Earth.
+
+More infos [here](https://en.wikipedia.org/wiki/Pulsar)
 
 Data meaning :
 
@@ -22,4 +25,4 @@ Data meaning :
     Class :
         Type of the pulsar star
 
-More info [here](http://www.isgjesar.com/Papers/Volume3,issue1/Paper%202.PDF)
+More infos [here](http://www.isgjesar.com/Papers/Volume3,issue1/Paper%202.PDF)
