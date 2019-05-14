@@ -1,4 +1,4 @@
-# Pulsar Star
+# PulSearch
 
 This repository was part of the "Village de la Data", a hackathon about Data Science.
 
